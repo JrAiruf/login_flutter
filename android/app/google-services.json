@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "975414623757",
+    "project_id": "loginprojectflutter-fb75a",
+    "storage_bucket": "loginprojectflutter-fb75a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975414623757:android:ccc635e2962e1c31939f44",
+        "android_client_info": {
+          "package_name": "br.com.silva.login_project_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975414623757-lhfo10lj7tlpdha6rj0o63trtdkd9s6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA76DnqGlHakujXhFTRh0Kcfq4C-bIqBs4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975414623757-lhfo10lj7tlpdha6rj0o63trtdkd9s6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
