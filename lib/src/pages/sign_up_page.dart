@@ -1,9 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:login_project_flutter/src/widgets/sign_up_email_field.dart';
 
 import '../controllers/auth_controller.dart';
+import '../widgets/sign_up_password_field.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -44,77 +45,27 @@ class SignUpPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const SizedBox(
-                          height: 55.0,
-                        ),
-                        const CircleAvatar(
-                          backgroundColor: Colors.purple,
-                          radius: 60.0,
-                        ),
-                        const SizedBox(
-                          height: 50.0,
-                        ),
-                        TextField(
-                          controller: emailController,
-                          style: const TextStyle(
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                        const Padding(
+                          padding: EdgeInsets.only(top: 55.0, bottom: 50.0),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.purple,
+                            radius: 60.0,
                           ),
-                          decoration: InputDecoration(
-                              hintText: 'Your e-mail',
-                              hintStyle: const TextStyle(
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              prefixIcon: const Icon(
-                                Icons.email,
-                                color: Colors.white,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              )),
                         ),
                         Padding(
-                          padding:
-                              const EdgeInsets.only(top: 15.0, bottom: 20.0),
-                          child: TextField(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: SignUpEmailField(
+                            controller: emailController,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 25.0),
+                          child: SignUpPasswordField(
                             controller: passwordController,
-                            style: const TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                                hintText: 'Your password',
-                                hintStyle: const TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                                prefixIcon: const Icon(
-                                   Icons.key,
-                                  color: Colors.white,
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                )),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 65),
+                          padding: const EdgeInsets.only(bottom: 65.0),
                           child: Row(
                             children: [
                               Expanded(
@@ -136,7 +87,9 @@ class SignUpPage extends StatelessWidget {
                               shape: shape,
                             ),
                             onPressed: () {
-                              AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+                              AuthController.instance.register(
+                                  emailController.text.trim(),
+                                  passwordController.text.trim());
                             },
                             child: const Text(
                               'Sign Up',
@@ -157,9 +110,9 @@ class SignUpPage extends StatelessWidget {
                                 fontSize: 20,
                               ),
                               children: [
-                                  TextSpan(
+                                TextSpan(
                                   text: " Login",
-                                  style:const TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,

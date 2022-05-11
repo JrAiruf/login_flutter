@@ -19,8 +19,7 @@ class AuthController extends GetxController {
 
   _initalScreen(User? user) {
     if (user == null) {
-      print('Login Page');
-      Get.offAll(()=> LoginPage());
+      Get.offAll(()=> const LoginPage());
     } else {
       Get.offAll(()=> WelcomePage(email: user.email.toString()));
     }

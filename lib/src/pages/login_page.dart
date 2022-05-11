@@ -1,10 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:login_project_flutter/src/pages/sign_up_page.dart';
-
+import 'package:login_project_flutter/src/widgets/app_initial_screen.dart';
 import '../controllers/auth_controller.dart';
+import '../widgets/email_text_fields.dart';
+import '../widgets/password_text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -44,77 +45,20 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        const Text(
-                          'Hello',
-                          style: TextStyle(
-                              fontSize: 65, fontWeight: FontWeight.w700),
-                        ),
-                        const Text(
-                          'Sign into your account',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w600),
-                        ),
-                        const SizedBox(
-                          height: 50.0,
-                        ),
-                        TextField(
-                          controller: emailController,
-                          style: const TextStyle(
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                          decoration: InputDecoration(
-                              hintText: 'Your e-mail',
-                              hintStyle: const TextStyle(
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              prefixIcon: const Icon(
-                                Icons.email,
-                                color: Colors.white,
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                  color: Colors.white,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              )),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 55.0),
+                          child: InitialPageTexts(),
                         ),
                         Padding(
-                          padding:
-                              const EdgeInsets.only(top: 15.0, bottom: 20.0),
-                          child: TextField(
-                            controller: passwordController,
-                            style: const TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                                hintText: 'Your password',
-                                hintStyle: const TextStyle(
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                                prefixIcon: const Icon(
-                                  Icons.key,
-                                  color: Colors.white,
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: const BorderSide(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                )),
+                          padding: const EdgeInsets.only(top: 50.0, bottom: 10),
+                          child: EmailTextField(
+                            emailController: emailController,
                           ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20.0),
+                          child: PasswordTextField(
+                              passwordController: passwordController),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 65),
@@ -139,7 +83,9 @@ class _LoginPageState extends State<LoginPage> {
                               shape: shape,
                             ),
                             onPressed: () {
-                              AuthController().login(emailController.text.trim(), passwordController.text.trim());
+                              AuthController().login(
+                                  emailController.text.trim(),
+                                  passwordController.text.trim());
                             },
                             child: const Text(
                               'Sign In',
